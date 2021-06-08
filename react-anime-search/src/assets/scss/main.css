@@ -86,6 +86,7 @@ header h1 strong {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  margin-right: 500px;
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
