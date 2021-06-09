@@ -2,11 +2,17 @@ import Header from './components/Header';
 import {useState, useEffect} from 'react';
 import Sidebar from './components/Sidebar';
 import MainContent from './components/MainContent';
+import {Toggle} from './components/Toggle';
+import {useDarkMode} from './styles/useDarkMode';
+import { GlobalStyles, lightTheme, darkTheme } from './styles/globalStyles';
+import styled, { ThemeProvider } from 'styled-components';
 
 function App() {
   const [animeList, SetAnimeList] = useState([]);
   const [topAnime, SetTopAnime] = useState([]);
   const [search, SetSearch] = useState("");
+  const [theme, toggleTheme] = useDarkMode();
+  const themeMode = theme === 'light' ? lightTheme : darkTheme;
 
   const GetTopAnime = async() => {
     const temp = await fetch(`https://api.jikan.moe/v3/top/anime/1/bypopularity`).then(res => res.json());
@@ -27,13 +33,17 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
-      <Header />
-      <div className="content-wrap">
-        <Sidebar topAnime={topAnime} />
-        <MainContent HandleSearch={HandleSearch} search={search} SetSearch={SetSearch} animeList={animeList} />
-      </div>
-    </div>
+    <ThemeProvider theme={themeMode}>
+      <div className="App">
+        <Header />
+        <GlobalStyles />
+        <Toggle theme={theme} toggleTheme={toggleTheme} />
+        <div className="content-wrap">
+          <Sidebar topAnime={topAnime} />
+          <MainContent HandleSearch={HandleSearch} search={search} SetSearch={SetSearch} animeList={animeList} />
+        </div>
+      </div>  
+    </ThemeProvider>
   );
 }
 
