@@ -1,5 +1,6 @@
 import React from 'react'
 import AnimeCard from './AnimeCard';
+import {texts} from './texts';
 
 function MainContent(props) {
     return (
@@ -7,7 +8,7 @@ function MainContent(props) {
             <div className="main-head">
                 <form className="search-box" onSubmit={props.HandleSearch}>
                     <input type="search"
-                     placeholder="Enter anime name"
+                     placeholder={texts[props.selectedLanguage]["placeholder"]}
                      required 
                      value={props.search} 
                      onChange={e => props.SetSearch(e.target.value)}/>
