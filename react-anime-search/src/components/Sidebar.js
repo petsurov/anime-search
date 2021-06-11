@@ -1,10 +1,12 @@
-import React from 'react'
+import React from 'react';
+import {texts} from './texts';
 
-function Sidebar({topAnime}) {
+
+function Sidebar({topAnime, selectedLanguage}) {
     return (
         <aside>
             <nav>
-                <h3>Top 5 Anime</h3>
+                <h3>{texts[selectedLanguage]["h3"]}</h3>
                 {topAnime.map(anime => (
                     <a href={anime.url} target="_blank" key={anime.mal_id} rel="noreferrer">{anime.title}</a>  
                 ))}
@@ -12,5 +14,4 @@ function Sidebar({topAnime}) {
         </aside>
     )
 }
-
 export default Sidebar
