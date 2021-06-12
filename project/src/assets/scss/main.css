@@ -182,6 +182,7 @@ header select {
 }
 
 .content-wrap main .anime-list .anime-card h3 {
+  word-wrap: break-word;
   color: #313131;
 }
 
