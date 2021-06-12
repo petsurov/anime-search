@@ -4,14 +4,12 @@ import {texts} from './texts';
 
 function Sidebar({topAnime, selectedLanguage}) {
     return (
-        <aside>
-            <nav>
-                <h3>{texts[selectedLanguage]["h3"]}</h3>
-                {topAnime.map(anime => (
-                    <a href={anime.url} target="_blank" key={anime.mal_id} rel="noreferrer">{anime.title}</a>  
-                ))}
-            </nav>
-        </aside>
+        <nav>
+            <h3>{texts[selectedLanguage]["h3"]}</h3>
+            {topAnime.map(anime => (
+                <a href={anime.url} target="_blank" key={anime.mal_id} rel="noreferrer">{anime.title}</a>  
+            ))}
+        </nav>
     )
 }
 export default Sidebar
