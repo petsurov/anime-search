@@ -5,7 +5,11 @@ class Header extends Component{
 
     constructor(props){
         super(props);
-        this.state = {selectedLang:localStorage.getItem("lang")}
+        this.state = {
+            selectedLang: localStorage.getItem("lang")
+              ? localStorage.getItem("lang")
+              : "en",
+          };
         this.change = this.change.bind(this)
     }
 

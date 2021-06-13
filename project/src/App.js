@@ -12,7 +12,10 @@ function App() {
   const [topAnime, SetTopAnime] = useState([]);
   const [search, SetSearch] = useState("");
   const [theme, toggleTheme] = useDarkMode();
-  const [language, setLang] = useState(localStorage.getItem("lang"));
+  const [language, setLang] = useState(
+    localStorage.getItem("lang") ?
+      localStorage.getItem("lang") : 'en'
+  );
   const themeMode = theme === 'light' ? lightTheme : darkTheme;
 
   const GetTopAnime = async() => {
