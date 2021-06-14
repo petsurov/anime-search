@@ -1,2 +1,2 @@
 # react-project
-To start you have to run `yarn` and then `yarn start`.
+First of all you have to go to the directory: react/project, then install `yarn` and run `yarn start` to start project.
