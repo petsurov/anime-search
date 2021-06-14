@@ -14,8 +14,9 @@ function MainContent(props) {
                      onChange={e => props.SetSearch(e.target.value)}/>
                 </form>
             </div>
-            <div className='anime-list'>
+            <div className='anime-list' id="parent">
                 {props.animeList.map(anime => (<AnimeCard anime={anime} key={anime.mal_id} />))}
+                {props.upComing.map(anime => (<AnimeCard anime={anime} key={anime.mal_id} />))}
             </div>
         </main>
     )
